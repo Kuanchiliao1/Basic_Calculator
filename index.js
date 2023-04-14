@@ -18,7 +18,8 @@ mainContainerEl.addEventListener("click", (event) => {
     calcInfo.operator = elementText
   } else if (elementText === "=") {
     if (calcInfo.operator === "+") {
-      
+      display.textContent = add(+calcInfo.currentValue, +display.textContent)
+      console.log("all summed up!")
     } else if (calcInfo.operator === "-") {
 
     } else if (calcInfo.operator === "/") {
@@ -26,16 +27,28 @@ mainContainerEl.addEventListener("click", (event) => {
     } else if (calcInfo.operator === "*") {
       
     }
-  } else if (elementText === "") {
-    
-  }
-    else {
-    display.textContent += elementText
+  } else if (elementText === "AC") {
+    display.textContent = ""
+    resetCalculator()
+  } else {
+    if (calcInfo.operator && calcInfo.nextValue === "") {
+        display.textContent = elementText
+        calcInfo.nextValue += elementText
+    } else {
+      display.textContent += elementText
+    }
   }
 })
 
 function calculate(a, b, operator) {
   
+}
+
+function resetCalculator() {
+  calcInfo.displayValue = ""
+  calcInfo.currentValue = ""
+  calcInfo.nextValue = ""
+  calcInfo.operator = ""
 }
 
 function add(a, b) {
