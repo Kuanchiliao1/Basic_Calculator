@@ -1,0 +1,39 @@
+.grid-container {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(4, 1fr);
+  width: 30%;
+  margin: 0 auto;
+}
+
+.display {
+  grid-column: span 4;
+  background-color: pink;
+  text-align: right;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background-color: lightblue;
+  border: solid black 1px;
+}
+
+.btn:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.btn#zero {
+  grid-column: span 2;
+}
+
+.btn#equal {
+  grid-row-end: 7;
+  grid-column-end: -1;
+}
+
+.btn.operator-btn {
+  grid-column-end: -1;
+}
