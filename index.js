@@ -12,6 +12,10 @@ const calcInfo = {
 mainContainerEl.addEventListener("click", (event) => {
   const elementText = event.target.textContent
   event.preventDefault()
+
+  if (display.textContent === "0") {
+    display.textContent = ""
+  }
   
   if (["*", "-", "/", "+"].includes(elementText)) {
     calcInfo.currentValue = display.textContent
@@ -21,14 +25,14 @@ mainContainerEl.addEventListener("click", (event) => {
       display.textContent = add(+calcInfo.currentValue, +display.textContent)
       console.log("all summed up!")
     } else if (calcInfo.operator === "-") {
-
+      
     } else if (calcInfo.operator === "/") {
       
     } else if (calcInfo.operator === "*") {
       
     }
   } else if (elementText === "AC") {
-    display.textContent = ""
+    display.textContent = "0"
     resetCalculator()
   } else {
     if (calcInfo.operator && calcInfo.nextValue === "") {
