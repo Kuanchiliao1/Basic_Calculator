@@ -38,14 +38,20 @@ mainContainerEl.addEventListener("click", (event) => {
 })
 
 function calculate(a, b, operator) {
-  if (operator === "+") {
-    display.textContent = add(a, b)
-  } else if (calcInfo.operator === "-") {
-    display.textContent = subtract(a, b)
-  } else if (calcInfo.operator === "/") {
-    display.textContent = divide(a, b)
-  } else if (calcInfo.operator === "*") {
-    display.textContent = multiply(a, b)
+  switch (operator) {
+    case "+":
+      display.textContent = add(a, b)
+      break
+    case "-":
+      display.textContent = subtract(a, b)
+      break
+    case "/":
+      display.textContent = divide(a, b)
+      break
+    case "*":
+      display.textContent = multiply(a, b)
+      break
+    default:
   }
 }
 
