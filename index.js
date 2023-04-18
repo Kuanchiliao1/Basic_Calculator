@@ -5,7 +5,7 @@ const display = document.getElementById("display")
 const calcInfo = {
   displayValue: "",
   currentValue: "",
-  nextValue: "",
+  clearForNextValue: false,
   operator: ""
 }
 
@@ -20,10 +20,10 @@ mainContainerEl.addEventListener("click", (event) => {
   if (["*", "-", "/", "+"].includes(elementText)) {
     calcInfo.currentValue = display.textContent
     calcInfo.operator = elementText
+    calcInfo.clearForNextValue = false
   } else if (elementText === "=") {
     if (calcInfo.operator === "+") {
       display.textContent = add(+calcInfo.currentValue, +display.textContent)
-      console.log("all summed up!")
     } else if (calcInfo.operator === "-") {
       
     } else if (calcInfo.operator === "/") {
@@ -35,9 +35,9 @@ mainContainerEl.addEventListener("click", (event) => {
     display.textContent = "0"
     resetCalculator()
   } else {
-    if (calcInfo.operator && calcInfo.nextValue === "") {
+    if (calcInfo.operator && !calcInfo.clearForNextValue) {
         display.textContent = elementText
-        calcInfo.nextValue += elementText
+        calcInfo.clearForNextValue = true
     } else {
       display.textContent += elementText
     }
