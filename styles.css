@@ -1,8 +1,18 @@
+html {box-sizing: border-box;}
+*, *::before, *::after {box-sizing: inherit;}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
 .grid-container {
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: repeat(4, 1fr);
-  width: 30%;
+  width: 20%;
+  aspect-ratio: 3/4;
   margin: 0 auto;
 }
 
@@ -10,6 +20,8 @@
   grid-column: span 4;
   background-color: pink;
   text-align: right;
+  display: grid;
+  align-content: center;
 }
 
 .btn {
