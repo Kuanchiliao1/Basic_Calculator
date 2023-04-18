@@ -22,15 +22,8 @@ mainContainerEl.addEventListener("click", (event) => {
     calcInfo.operator = elementText
     calcInfo.clearForNextValue = false
   } else if (elementText === "=") {
-    if (calcInfo.operator === "+") {
-      display.textContent = add(+calcInfo.currentValue, +display.textContent)
-    } else if (calcInfo.operator === "-") {
-      
-    } else if (calcInfo.operator === "/") {
-      
-    } else if (calcInfo.operator === "*") {
-      
-    }
+    calculate(+calcInfo.currentValue, +display.textContent, calcInfo.operator)
+    
   } else if (elementText === "AC") {
     display.textContent = "0"
     resetCalculator()
@@ -45,7 +38,15 @@ mainContainerEl.addEventListener("click", (event) => {
 })
 
 function calculate(a, b, operator) {
-  
+  if (operator === "+") {
+    display.textContent = add(a, b)
+  } else if (calcInfo.operator === "-") {
+    display.textContent = subtract(a, b)
+  } else if (calcInfo.operator === "/") {
+    display.textContent = divide(a, b)
+  } else if (calcInfo.operator === "*") {
+    display.textContent = multiply(a, b)
+  }
 }
 
 function resetCalculator() {
