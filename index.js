@@ -18,9 +18,13 @@ mainContainerEl.addEventListener("click", (event) => {
   }
   
   if (["*", "-", "/", "+"].includes(elementText)) {
+    if (calcInfo.operator) {
+      calculate(+calcInfo.currentValue, +display.textContent, calcInfo.operator)
+    }
     calcInfo.currentValue = display.textContent
     calcInfo.operator = elementText
     calcInfo.clearForNextValue = false
+    
   } else if (elementText === "=") {
     calculate(+calcInfo.currentValue, +display.textContent, calcInfo.operator)
     
