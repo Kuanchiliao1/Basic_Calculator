@@ -79,5 +79,10 @@ function subtract(a, b) {
 }
 
 function divide(a, b) {
-  return a / b
+  if (b === 0) {
+    alert("stop doing that!")
+    return a
+  } else {
+    return a / b
+  }
 }
